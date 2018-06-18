@@ -1,0 +1,216 @@
+\documentclass[oneside,12pt, numbered]{book}
+
+
+%\usepackage[Lenny]{fncychap}
+\usepackage{a4wide}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{shorttoc}
+
+\usepackage{url}
+\usepackage[autolanguage]{numprint}
+\usepackage{float}
+ \usepackage{hyperref}
+\usepackage{frcursive}
+\usepackage{icomma}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[]{siunitx}
+\usepackage{textcomp}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ left=19mm,
+ right=19mm,
+ top=21mm,
+ bottom= 18mm,
+ }
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+citecolor=blue,
+filecolor=black,
+urlcolor=black
+}
+
+\usepackage[explicit]{titlesec}
+\usepackage{lmodern}
+\usepackage{color}
+\newlength\chapnumb
+\setlength\chapnumb{3cm}
+
+
+\titleformat{\chapter}[block] 
+{\sffamily}{}{0pt} {
+\parbox[b]{\chapnumb}{
+\fontsize{90}{80}\selectfont\thechapter}
+\parbox[b]{\dimexpr\textwidth-\chapnumb\relax}{
+\raggedleft
+\hfill{\Huge\sffamily#1}\\
+\rule{\dimexpr\textwidth-\chapnumb\relax}{0.8pt}
+}
+}
+
+\titleformat{name=\chapter,numberless}[block]
+{\sffamily}{}{0pt}
+{\parbox[b]{\chapnumb}{%
+\mbox{}}%
+\parbox[b]{\dimexpr\textwidth-\chapnumb\relax}{
+\raggedleft
+\hfill{\Huge\sffamily#1}\\
+\rule{\dimexpr\textwidth-\chapnumb\relax}{0.8pt}}}
+    
+
+
+%%configuration de listings
+\lstset{
+language={[Sharp]C},
+}
+
+\setlength{\parindent}{0cm}
+
+\graphicspath{{images/}}
+\def\Titre{La technologie dans le cadre de l'entraînement d'un coureur de haut niveau}
+\def\title{La partie invisible de la performance sportive révélée par la technologie} %Application et expérimentation au 400m
+
+\def\Auteur{Joan Medjid}
+\def\Version{0.1}
+\def\Date{\today}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\nouppercase{\rightmark}}
+
+
+\renewcommand{\thesubsubsection}{\alph{subsubsection})}
+\renewcommand{\appendixautorefname}{Annexe}
+
+\setcounter{secnumdepth}{3}
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+        \begin{center}
+
+            \begin{figure}
+            \centering
+            \vspace{30pt}
+              \includegraphics[width=0.5\textwidth]{logo-nanterre}\\[1.5cm]
+            \end{figure}
+            
+            
+            {\LARGE Master MIAGE}\\[0.5cm]
+            {\LARGE Mémoire de fin d'étude}\\[2cm]
+            
+            \rule{\linewidth}{0.6mm} \\[0.4cm]
+            { \huge \bfseries \title \\[0.4cm] }
+            \rule{\linewidth}{0.6mm} \\[0.4cm]
+   
+            \begin{figure}[H]
+             \centering
+            \includegraphics[scale=1]{images/analyse2.jpg}
+            \end{figure}
+            
+            \vspace{0.4cm}
+            
+            \large{\emph{Réalisé par :}}\hspace{30ex}\large{\emph{Encadré par :}}
+            
+
+            \hspace{2ex} \LARGE{Joan \textsc{Medjid}}\hspace{12ex}\hspace{1ex}\LARGE{Lom Messan \textsc{Hillah}}\\[2cm]
+            
+            
+             \Large{Année universitaire 2017-2018}
+        
+        \end{center}
+    \end{titlepage}
+        
+
+    \frontmatter
+   
+        \input{resume.tex}
+        \input{001-introduction}
+        \input{contribution}
+        \input{plan}
+        \input{00-remerciements}
+        \shorttableofcontents{Sommaire}{0}
+
+        \newpage
+        
+        \listoffigures
+
+        \input{glossaire.tex}
+        \input{abreviation.tex}
+        \input{contexte.tex}
+        \input{problematique.tex}
+    
+    \mainmatter
+  
+        \input{01-performance}
+        \input{02-outils}
+        \input{03-etat_art}
+        \input{04-experimentation}
+        \input{003-conclusion}
+
+        \appendix  \label{annexe}
+        
+
+          \chapter{Données oxymétrie de pouls}
+        \label{annexe_oxy}
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=1.5]{images/donnees_fc}
+            \caption{\label{fig:donnees_fc}Données brutes de la l'oxymétrie de pouls obtenue. « Perfn » correspond au temps réalisé le jour n, « Avn » à l'oxymétrie de pouls avant la course, « Apn » à l'oxymétrie de pouls après la course et « Ecartn » à la différence entre l'oxymétrie de pouls avant et après la course.}
+        \end{figure}
+
+        \chapter{Données fréquence cardiaque}
+        \label{annexe_fc}
+        
+         \begin{figure}[H]
+            \centering
+            \includegraphics[scale=1.5]{images/donnees_fc}
+            \caption{\label{fig:donnees_fc}Données brutes de la fréquence cardiaque obtenue. « Perfn » correspond au temps réalisé le jour n, « Avn » à la fréquence cardiaque avant la course, « Apn » à la fréquence cardiaque après la course et « Ecartn » à la différence entre la fréquence cardiaque avant et après la course.}
+        \end{figure} 
+        
+        \chapter{Données glycémie}
+        \label{annexe_gly}
+        
+         \begin{figure}[H]
+            \centering
+            \includegraphics[scale=1.5]{images/donnees_gly}
+            \caption{\label{fig:donnees_gly}Données brutes de la glycémie obtenue. « Perfn » correspond au temps réalisé le jour n, « Avn » à la glycémie avant la course, « Apn » à la glycémie aprés la course et « Ecartn » à la différence entre la glycémie avant et après la course.}
+        \end{figure}
+        
+        \chapter{Données lactatémie}
+        \label{annexe_lact}
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=1.5]{images/donnees_lact}
+            \caption{\label{fig:donnees_lact}Données brutes de la lactatémie obtenue. « Perfn » correspond au temps réalisé le jour n, « Avn » à la lactatémie avant la course, « Apn » à la lactatémie aprés la course et « Ecartn » à la différence entre la lactatémie avant et après la course. }
+        \end{figure}
+        
+        \newpage
+    
+    \backmatter
+        \nocite{*}
+        \bibliographystyle{unsrt}
+        \bibliography{references}    
+        
+        \newpage
+        
+        \renewcommand{\contentsname}{Table des matières}
+        \setcounter{tocdepth}{6}
+        \tableofcontents
+    
+ 
+\end{document}
